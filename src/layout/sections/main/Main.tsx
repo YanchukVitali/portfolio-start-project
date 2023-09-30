@@ -18,7 +18,7 @@ export const Main = () => {
     );
 };
 
-const StyledMain = styled.div`
+const StyledMain = styled.section`
   min-height: 10vh;
   background-color: #d97186;
 `
