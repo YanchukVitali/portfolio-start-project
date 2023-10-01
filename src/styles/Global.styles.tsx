@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    color: ${theme.colors.font};
 
   }
 
@@ -45,6 +46,18 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${theme.colors.secondaryBg};
   }
 
+  
+  h3 {
+    font-family: Josefin Sans, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  p {
+    font-size: 14px;
+    font-weight: 400;
+  }
 `
 
 
