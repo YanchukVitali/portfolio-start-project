@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {Icon} from "../../components/icon/Icon";
 import {FlexWrapper} from "../../components/FlexWrapper";
+import {theme} from "../../styles/Theme";
 
 export const Footer = () => {
     return (
@@ -29,7 +30,6 @@ export const Footer = () => {
                             <Icon height={"21px"} width={"21px"} viewBox={"0 0 21 21"} iconId={"linkedin"}/>
                         </SocialLink>
                     </SocialItem>
-
                 </SocialList>
                 <Copyright>© 2023 Svetlana Dyablo, All Rights Reserved.</Copyright>
             </FlexWrapper>
@@ -38,7 +38,7 @@ export const Footer = () => {
 };
 
 const StyledFooter = styled.footer`
-  background-color: #a4cb99;
+  background-color: ${theme.colors.primaryBg};
   min-height: 20vh;
 `
 const Name = styled.span`
