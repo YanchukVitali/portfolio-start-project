@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {theme} from "../../../styles/Theme";
 
 
@@ -52,7 +52,9 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   display: none;
 
   ${props => props.isOpen && css<{ isOpen: boolean }>`
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
   `}
   
   ul {
@@ -81,6 +83,10 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
     left: 40px;
     bottom: 50px;
 
+    ${props => props.isOpen && css<{ isOpen: boolean }>`
+      color: rgba(255, 255, 255, 0);
+    `}
+    
     &::before {
       content: "";
       display: block;
@@ -89,6 +95,10 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
       color: ${theme.colors.font};
       position: absolute;
       transform: translateY(-10px);
+
+      ${props => props.isOpen && css<{ isOpen: boolean }>`
+        transform: rotate(-45deg) translateY(0);
+      `}
     }
 
     &::after {
@@ -99,6 +109,11 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
       color: ${theme.colors.font};
       position: absolute;
       transform: translateY(10px);
+
+      ${props => props.isOpen && css<{ isOpen: boolean }>`
+        transform: rotate(45deg) translateY(0);
+        width: 36px;
+    `}
     }
   }
 `
