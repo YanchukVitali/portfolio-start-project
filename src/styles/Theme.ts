@@ -1,5 +1,3 @@
-
-
 export const theme = {
     colors: {
         primaryBg: "#1F1F20",
@@ -9,5 +7,10 @@ export const theme = {
         font: "#fff",
         borderColor: "#4A4A4A",
         placeholderColor: "#495057"
+    },
+
+    media: {
+        tabled: "screen and (max-width: 768px)",
+        mobile: "screen and (max-width: 576px)",
     }
 }

@@ -3,9 +3,12 @@ import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
 
 
-export const HeaderMenu = (props: { menuItems: Array<string> }) => {
+export const MobileMenu = (props: { menuItems: Array<string> }) => {
     return (
-        <StyledHeaderMenu>
+        <StyledMobileMenu>
+            <BurgerButom>
+                <span></span>
+            </BurgerButom>
             <ul>
                 {props.menuItems.map((item, index) => {
                     return <ListItem key={index}>
@@ -21,12 +24,12 @@ export const HeaderMenu = (props: { menuItems: Array<string> }) => {
                     </ListItem>
                 })}
             </ul>
-        </StyledHeaderMenu>
+        </StyledMobileMenu>
     );
 };
 
 
-const StyledHeaderMenu = styled.nav`
+const StyledMobileMenu = styled.nav`
   ul {
     display: flex;
     gap: 30px;
@@ -34,10 +37,46 @@ const StyledHeaderMenu = styled.nav`
   }
 
   @media ${theme.media.tabled} {
-  display: none;
+    display: none;
   }
 `
+const BurgerButom = styled.button`
+  position: fixed;
+  top: -100px;
+  right: -100px;
+  width: 200px;
+  height: 200px;
 
+  span: {
+    display: block;
+    width: 36px;
+    height: 2px;
+    color: ${theme.colors.font};
+    position: absolute;
+    left: 40px;
+    bottom: 50px;
+    
+    &::before {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 2px;
+      color: ${theme.colors.font};
+      position: absolute;
+      transform: translateY(-10px);
+    }
+    
+    &::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2px;
+      color: ${theme.colors.font};
+      position: absolute;
+      transform: translateY(10px);
+    }
+  }
+`
 
 const Link = styled.a`
   text-align: center;
@@ -70,15 +109,15 @@ const Mask = styled.span`
 
 const ListItem = styled.li`
   position: relative;
-  
-  &::before{
+
+  &::before {
     content: "";
     display: inline-block;
     height: 2.9px;
     background-color: ${theme.colors.accent};
-    
+
     position: absolute;
-    top:50%;
+    top: 50%;
     left: -10px;
     right: -10px;
     z-index: 1;
@@ -86,19 +125,19 @@ const ListItem = styled.li`
   }
 
   &:hover {
-    &::before{
+    &::before {
       transform: scale(1);
     }
-    
+
     ${Mask} {
       transform: skewX(12deg) translateX(5px);
       color: ${theme.colors.font};
-      
-      & +${Mask}{
+
+      & + ${Mask} {
         transform: skewX(12deg) translateX(-5px);
       }
     }
-    
+
   }
 
 `
