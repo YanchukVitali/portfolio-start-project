@@ -6,41 +6,66 @@ import {theme} from "../../../styles/Theme";
 export const MobileMenu = (props: { menuItems: Array<string> }) => {
     return (
         <StyledMobileMenu>
-            <BurgerButom>
+            <BurgerButton isOpen={true}>
                 <span></span>
-            </BurgerButom>
-            <ul>
-                {props.menuItems.map((item, index) => {
-                    return <ListItem key={index}>
-                        <Link href="">
-                            {item}
-                            <Mask>
-                                <span>{item}</span>
-                            </Mask>
-                            <Mask>
-                                <span>{item}</span>
-                            </Mask>
-                        </Link>
-                    </ListItem>
-                })}
-            </ul>
+            </BurgerButton>
+
+            <MobileMenuPopup isOpen={true}>
+                <ul>
+                    {props.menuItems.map((item, index) => {
+                        return <ListItem key={index}>
+                            <Link href="">
+                                {item}
+                                <Mask>
+                                    <span>{item}</span>
+                                </Mask>
+                                <Mask>
+                                    <span>{item}</span>
+                                </Mask>
+                            </Link>
+                        </ListItem>
+                    })}
+                </ul>
+            </MobileMenuPopup>
+
         </StyledMobileMenu>
     );
 };
 
 
 const StyledMobileMenu = styled.nav`
-  ul {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-  }
+
 
   @media ${theme.media.tabled} {
     display: none;
   }
 `
-const BurgerButom = styled.button`
+
+const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(31, 31, 32, 0.90);
+  z-index: 99999;
+  display: none;
+
+  ${props => props.isOpen && css<{ isOpen: boolean }>`
+
+  `}
+  
+  ul {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+`
+
+const BurgerButton = styled.button<{ isOpen: boolean }>`
   position: fixed;
   top: -100px;
   right: -100px;
@@ -55,7 +80,7 @@ const BurgerButom = styled.button`
     position: absolute;
     left: 40px;
     bottom: 50px;
-    
+
     &::before {
       content: "";
       display: block;
@@ -65,7 +90,7 @@ const BurgerButom = styled.button`
       position: absolute;
       transform: translateY(-10px);
     }
-    
+
     &::after {
       content: "";
       display: block;
