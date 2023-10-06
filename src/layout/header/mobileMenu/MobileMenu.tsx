@@ -34,10 +34,10 @@ export const MobileMenu = (props: { menuItems: Array<string> }) => {
 
 
 const StyledMobileMenu = styled.nav`
-
+  display: none;
 
   @media ${theme.media.tabled} {
-    display: none;
+    display: block;
   }
 `
 
@@ -73,18 +73,19 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
   right: -100px;
   width: 200px;
   height: 200px;
+  z-index: 999999;
 
   span: {
     display: block;
     width: 36px;
     height: 2px;
-    color: ${theme.colors.font};
+    background-color: ${theme.colors.font};
     position: absolute;
     left: 40px;
     bottom: 50px;
 
     ${props => props.isOpen && css<{ isOpen: boolean }>`
-      color: rgba(255, 255, 255, 0);
+      background-color: rgba(255, 255, 255, 0);
     `}
     
     &::before {
@@ -92,7 +93,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
       display: block;
       width: 36px;
       height: 2px;
-      color: ${theme.colors.font};
+      background-color: ${theme.colors.font};
       position: absolute;
       transform: translateY(-10px);
 
@@ -106,7 +107,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
       display: block;
       width: 24px;
       height: 2px;
-      color: ${theme.colors.font};
+      background-color: ${theme.colors.font};
       position: absolute;
       transform: translateY(10px);
 

@@ -34,7 +34,7 @@ const StyledHeaderMenu = styled.nav`
   }
 
   @media ${theme.media.tabled} {
-  display: none;
+    display: none;
   }
 `
 
