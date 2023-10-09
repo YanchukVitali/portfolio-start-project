@@ -31,6 +31,7 @@ export const Footer = () => {
                         </SocialLink>
                     </SocialItem>
                 </SocialList>
+                {/*Change Svetlana Dybalo to Vitali Yanchuk*/}
                 <Copyright>© 2023 Yanchuk Vitali, All Rights Reserved.</Copyright>
             </FlexWrapper>
         </StyledFooter>
