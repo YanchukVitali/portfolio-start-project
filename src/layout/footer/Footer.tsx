@@ -31,7 +31,7 @@ export const Footer = () => {
                         </SocialLink>
                     </SocialItem>
                 </SocialList>
-                <Copyright>© 2023 Svetlana Dyablo, All Rights Reserved.</Copyright>
+                <Copyright>© 2023 Yanchuk Vitali, All Rights Reserved.</Copyright>
             </FlexWrapper>
         </StyledFooter>
     );
