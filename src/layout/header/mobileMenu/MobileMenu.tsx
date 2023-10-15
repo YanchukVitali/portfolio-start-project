@@ -41,32 +41,6 @@ const StyledMobileMenu = styled.nav`
   }
 `
 
-const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(31, 31, 32, 0.90);
-  z-index: 99999;
-  display: none;
-
-  ${props => props.isOpen && css<{ isOpen: boolean }>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `}
-  
-  ul {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-`
-
 const BurgerButton = styled.button<{ isOpen: boolean }>`
   position: fixed;
   top: -100px;
@@ -75,7 +49,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
   height: 200px;
   z-index: 999999;
 
-  span: {
+  span {
     display: block;
     width: 36px;
     height: 2px;
@@ -117,6 +91,32 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
     `}
     }
   }
+`
+
+const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(31, 31, 32, 0.90);
+  z-index: 99999;
+  display: none;
+
+  ${props => props.isOpen && css<{ isOpen: boolean }>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `}
+  
+  ul {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
 `
 
 const Link = styled.a`
