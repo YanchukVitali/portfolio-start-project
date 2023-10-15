@@ -15,6 +15,7 @@ export const Header = () => {
                 <FlexWrapper justify={"space-around"} align={"center"}>
                     <Logo/>
                     <HeaderMenu menuItems={items}/>
+                    // dont forgot delete these commit
                     {/*<MobileMenu menuItems={items}/>*/}
                 </FlexWrapper>
             </Container>
