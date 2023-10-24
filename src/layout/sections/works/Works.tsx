@@ -9,13 +9,13 @@ import timerImg from "../../../assets/images/proj2.webp"
 import {Container} from "../../../components/container";
 
 
-const worksItems = ["All", "landing page", "React", "spa",]
+const tabsItems = ["All", "landing page", "React", "spa",]
 export const Works = () => {
     return (
         <StyledWorks>
             <Container>
             <SectionTitle>My Works</SectionTitle>
-            <TabMenu menuItems={worksItems}/>
+            <TabMenu tabsItems={tabsItems}/>
                 <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"}>
                     <Work title={"Social Network"}
                           src={socialImg}
