@@ -5,6 +5,7 @@ import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Container} from "../../../components/container";
 import {theme} from "../../../styles/Theme";
 import {font} from "../../../styles/Common";
+import Typewriter from 'typewriter-effect';
 
 export const Main = () => {
     return (
@@ -14,7 +15,18 @@ export const Main = () => {
                     <div>
                         <SmallText>Hi There</SmallText>
                         <Name>I am <span>Svetlana Dyablo</span></Name>
-                        <MainTitle>A Web Developer. </MainTitle>
+                        {/*<MainTitle>A Web Developer. </MainTitle>*/}
+                        <MainTitle>
+                            <p>A Web Developer.</p>
+                            <Typewriter
+                                options={{
+                                    strings: ['A Web Developer.'],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 50,
+                                }}
+                            />
+                        </MainTitle>
                     </div>
                     <PhotoWrapper>
                         <Photo src={photo} alt=""/>
@@ -71,7 +83,11 @@ export const Photo = styled.img`
 `
 
 const MainTitle = styled.h1`
-  ${font({weight: 400, Fmax: 27, Fmin: 20})}
+  ${font({weight: 400, Fmax: 27, Fmin: 20})};
+  
+  p {
+    display: none;
+  }
   
 `
 
