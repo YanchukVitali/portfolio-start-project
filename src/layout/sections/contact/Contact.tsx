@@ -23,7 +23,7 @@ export const Contact = () => {
 };
 
 const StyledContact = styled.section`
-  
+  position: relative;
 `
 const StyledForm = styled.form`
   max-width: 540px;

@@ -33,6 +33,8 @@ const StyledWorks = styled.section`
  ${FlexWrapper} {
    gap: 30px;
  }
+  
+  position: relative;
     
     
 `
