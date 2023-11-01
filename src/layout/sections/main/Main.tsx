@@ -6,6 +6,7 @@ import {Container} from "../../../components/container";
 import {theme} from "../../../styles/Theme";
 import {font} from "../../../styles/Common";
 import Typewriter from 'typewriter-effect';
+import Tilt from 'react-parallax-tilt';
 
 export const Main = () => {
     return (
@@ -15,7 +16,6 @@ export const Main = () => {
                     <div>
                         <SmallText>Hi There</SmallText>
                         <Name>I am <span>Svetlana Dyablo</span></Name>
-                        {/*<MainTitle>A Web Developer. </MainTitle>*/}
                         <MainTitle>
                             <p>A Web Developer.</p>
                             <Typewriter
@@ -28,9 +28,16 @@ export const Main = () => {
                             />
                         </MainTitle>
                     </div>
-                    <PhotoWrapper>
-                        <Photo src={photo} alt=""/>
-                    </PhotoWrapper>
+                    <Tilt className="parallax-effect-glare-scale"
+                          perspective={500}
+                          glareEnable={true}
+                          glareMaxOpacity={0.45}
+                          scale={1.02}>
+                        <PhotoWrapper>
+                            <Photo src={photo} alt=""/>
+                        </PhotoWrapper>
+                    </Tilt>
+
                 </FlexWrapper>
             </Container>
 
@@ -42,20 +49,20 @@ const StyledMain = styled.section`
   min-height: 10vh;
   background-color: #d97186;
   display: flex;
-  
+
 `
 
 const PhotoWrapper = styled.div`
-position: relative;
+  position: relative;
   z-index: 0;
   margin-top: 65px;
-  
+
   &::before {
     content: "";
     width: 360px;
     height: 470px;
-    border:  5px solid ${theme.colors.accent};
-    
+    border: 5px solid ${theme.colors.accent};
+
     position: absolute;
     top: -24px;
     left: 24px;
@@ -74,33 +81,33 @@ export const Photo = styled.img`
   height: 430px;
   object-fit: cover;
   margin-right: 20px;
-  
+
   @media ${theme.media.mobile} {
     width: 310px;
     height: 380px;
-    
+
   }
 `
 
 const MainTitle = styled.h1`
   ${font({weight: 400, Fmax: 27, Fmin: 20})};
-  
+
   p {
     display: none;
   }
-  
+
 `
 
 const Name = styled.h2`
-  ${font({family:"Josefin Sans, sans-serif", weight: 700, Fmax: 50, Fmin: 36})}
+  ${font({family: "Josefin Sans, sans-serif", weight: 700, Fmax: 50, Fmin: 36})}
   letter-spacing: 2.5px;
   margin: 10px 0;
-  
+
   span {
     position: relative;
     z-index: 0;
     white-space: nowrap;
-    
+
     &::before {
       content: "";
       display: inline-block;
@@ -121,5 +128,5 @@ const Name = styled.h2`
 const SmallText = styled.h2`
   font-size: 14px;
   font-weight: 400;
-  
+
 `
